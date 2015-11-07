@@ -27,4 +27,4 @@ csv
      console.log("done");
  });
 
-query.on('end', function() { client.end(); });
+
