@@ -4,8 +4,9 @@ var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec
 var client = new pg.Client(connectionString);
 client.connect();
 console.log("Client connected to database");
-var query = client.query('Select * from items');
+var query = client.query('Select * from items where INSTNM="University of Alabama System Office"');
 console.log(query);
+
 
 query.on('end', function() { client.end(); });
 console.log("done");
