@@ -7,9 +7,12 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "csv-parse": "^1.0.0",
     "ejs": "2.3.3",
     "express": "4.13.3",
-    "pg" :"3.3.0"
+    "fast-csv": "^0.6.0",
+    "fs": "0.0.2",
+    "pg": "3.3.0"
   },
   "engines": {
     "node": "0.12.7"
