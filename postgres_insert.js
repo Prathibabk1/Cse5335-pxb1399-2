@@ -20,7 +20,8 @@ csv
 if (!err)
 console.log(result);
 else
-console.log('failed to get data');
+console.log(err);
+console.log('failed to insert data');
 client.end(); 
 });
     
