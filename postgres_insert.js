@@ -14,7 +14,7 @@ csv
  .fromStream(stream, {headers : true})
  .on("data", function(data){
     var d1=data;
-    var line='Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values ( '+d1.UNITID+','+d1.INSTNM+','+d1.ADDR+','+d1.CITY+','+d1.STABBR+','+d1.ZIP+')';
+    var line='Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values ('+d1.UNITID+','+d1.INSTNM+','+d1.ADDR+','+d1.CITY+','+d1.STABBR+','+d1.ZIP+')';
     console.log(line);
  query = client.query(line,function(err,result){
 if (!err)
@@ -22,7 +22,7 @@ console.log(result);
 else
 console.log(err);
 console.log('failed to insert data');
-client.end(); 
+ 
 });
     
     
