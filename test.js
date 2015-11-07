@@ -7,7 +7,7 @@ console.log("Client connected to database");
 
 
 
- var query = client.query('select INSTNM from items');
+ var query = client.query('select * from items');
     var rows = [];
     query.on('row', function(row) {
       //fired once for each row returned
