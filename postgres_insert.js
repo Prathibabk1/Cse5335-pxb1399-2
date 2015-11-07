@@ -19,7 +19,7 @@ csv
  query = client.query(line,function(err,result){
 if (!err)
 console.log(result);
-console.log('data inserted');
+
 else
 console.log(err);
 console.log('failed to insert data');
