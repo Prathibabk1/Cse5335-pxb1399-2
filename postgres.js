@@ -12,7 +12,7 @@ var query = client.query('CREATE TABLE items(UNITID integer PRIMARY KEY, INSTNM 
      else
          console.log(err);
      
-    });
+    })
 
 
 query.on('end', function() { client.end(); });

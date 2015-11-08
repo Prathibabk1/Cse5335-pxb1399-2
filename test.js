@@ -7,15 +7,11 @@ console.log("Client connected to database");
 
 
 
- var query = client.query('select * from items');
-    var rows = [];
+ var query = client.query('select INSTNM from items');
+    
     query.on('row', function(row) {
-      //fired once for each row returned
-      rows.push(row);
-    })
-    query.on('end', function(result) {
-      console.log(result.rowCount + ' rows were received');
-    })
+      console.log(row.name);
+    });
     query.on('end', function() {
         client.end();
         console.log("done");
