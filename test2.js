@@ -21,6 +21,7 @@ var query = client.query("SELECT * FROM ITEMS where unitid =($1)", [id] ,functio
       //fired once for each row returned
       rows.push(row);
       console.log(row);
+        console.log(rows);
     })
     query.on('end', function(result) {
       //fired once and only once, after the last row has been returned and after all 'row' events are emitted
