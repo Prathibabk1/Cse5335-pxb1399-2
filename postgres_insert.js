@@ -30,12 +30,7 @@ csv
          console.log(error);
      
     });
-    query.on('error', function(error) {
-         //err is the error returned from the PostgreSQL server
-      //handle the error
-    console.log(error);
-    console.log('failed to insert data');
-    })
+    
 })
 .on("end", function(){
     client.end();
