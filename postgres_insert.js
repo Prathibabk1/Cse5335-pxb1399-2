@@ -22,9 +22,6 @@ csv
     var zip=JSON.stringify(d1.ZIP)
     
  var query = client.query('Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)'[id,instn,add,city,st,zip]);
-   query.on('row', function(row) {
-           console.log(row);
-       })
     query.on('error', function(error) {
          //err is the error returned from the PostgreSQL server
       //handle the error
