@@ -28,7 +28,7 @@ csv
       
     });
 
- query.on('end', function() { client.end(); });
+ client.end(); 
  
 
 
