@@ -5,7 +5,7 @@ var client = new pg.Client(connectionString);
 client.connect();
 var id=100663;
 console.log("Client connected to database");
-var query = client.query("SELECT * FROM ITEMS where unitid =($1)", [id] ,function(err, result) {
+var query = client.query("SELECT unitid FROM ITEMS " ,function(err, result) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(!err)
@@ -27,6 +27,7 @@ var query = client.query("SELECT * FROM ITEMS where unitid =($1)", [id] ,functio
       //fired once and only once, after the last row has been returned and after all 'row' events are emitted
       //in this example, the 'rows' array now contains an ordered set of all the rows which we received from postgres
       console.log(result.rowCount + ' rows were received');
+        console.log(JSON.stringify(rows));
         console.log(rows);
          client.end();
     });
