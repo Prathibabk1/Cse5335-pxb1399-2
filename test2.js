@@ -20,13 +20,11 @@ var query = client.query('SELECT UNITID,INSTNM FROM ITEMS ',function(err, result
       //fired once for each row returned
       rows.push(row);
       console.log(row);
-    });
+    })
     query.on('end', function(result) {
       //fired once and only once, after the last row has been returned and after all 'row' events are emitted
       //in this example, the 'rows' array now contains an ordered set of all the rows which we received from postgres
       console.log(result.rowCount + ' rows were received');
+         client.end();
     });
-    query.on('end', function(result) {
-      console.log(result.rowCount + ' rows were received');
-        client.end();
-    });
+   
