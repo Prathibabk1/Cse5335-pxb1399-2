@@ -22,7 +22,7 @@ csv
     if (!error)
     console.log(result);
     else{
-    console.log(err);
+    console.log(error);
     console.log('failed to insert data');}
  });
       
