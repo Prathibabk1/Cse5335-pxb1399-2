@@ -3,8 +3,9 @@ var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec
 
 var client = new pg.Client(connectionString);
 client.connect();
+var id=100663;
 console.log("Client connected to database");
-var query = client.query('SELECT UNITID,INSTNM FROM ITEMS ',function(err, result) {
+var query = client.query("SELECT * FROM ITEMS where unitid =($1)", [id] ,function(err, result) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(!err)
