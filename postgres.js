@@ -4,7 +4,16 @@ var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec
 var client = new pg.Client(connectionString);
 client.connect();
 console.log("Client connected to database");
-var query = client.query('CREATE TABLE items(UNITID integer PRIMARY KEY, INSTNM VARCHAR(40), ADDR VARCHAR(100),CITY VARCHAR(40),STABBR VARCHAR(40),ZIP VARCHAR(40))');
+var query = client.query('CREATE TABLE items(UNITID integer PRIMARY KEY, INSTNM VARCHAR(40), ADDR VARCHAR(100),CITY VARCHAR(40),STABBR VARCHAR(40),ZIP VARCHAR(40))',function(err, result) {
+      //err is the error returned from the PostgreSQL server
+      //handle the error here
+     if(!err)
+         console.log(result);
+     else
+         console.log(error);
+     
+    });
+
 
 query.on('end', function() { client.end(); });
 console.log("table created");
