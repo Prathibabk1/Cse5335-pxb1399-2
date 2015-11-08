@@ -15,5 +15,7 @@ var query = client.query('CREATE TABLE items(UNITID integer PRIMARY KEY, INSTNM 
     })
 
 
-query.on('end', function() { client.end(); });
+query.on('end', function() {
+    client.end();
 console.log("table created");
+});

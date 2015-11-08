@@ -7,11 +7,17 @@ console.log("Client connected to database");
 
 
 
- var query = client.query('select INSTNM from items');
+ var query = client.query('Drop table items',function(err, result) {
+      //err is the error returned from the PostgreSQL server
+      //handle the error here
+     if(!err)
+         console.log(result);
+     else
+         console.log(err);
+     
+    })
     
-    query.on('row', function(row) {
-      console.log(row.INSTNM);
-    });
+
     query.on('end', function() {
         client.end();
         console.log("done");
