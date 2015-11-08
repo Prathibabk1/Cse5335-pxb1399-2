@@ -10,7 +10,7 @@ console.log("Client connected to database");
  var query = client.query('select INSTNM from items');
     
     query.on('row', function(row) {
-      console.log(row.name);
+      console.log(row.INSTNM);
     });
     query.on('end', function() {
         client.end();
