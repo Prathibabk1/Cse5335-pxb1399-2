@@ -20,7 +20,7 @@ var query = client.query("SELECT * FROM ITEMS where unitid =($1)", [id] ,functio
     query.on('row', function(row) {
       //fired once for each row returned
       rows.push(row);
-      console.log(row);
+      console.log(JSON.stringify(row));
        
     })
     query.on('end', function(result) {
