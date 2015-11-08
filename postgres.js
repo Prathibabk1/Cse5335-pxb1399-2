@@ -10,7 +10,7 @@ var query = client.query('CREATE TABLE items(UNITID integer PRIMARY KEY, INSTNM 
      if(!err)
          console.log(result);
      else
-         console.log(error);
+         console.log(err);
      
     });
 

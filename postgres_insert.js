@@ -28,7 +28,7 @@ csv
      if(!err)
          console.log(result);
      else
-         console.log(error);
+         console.log(err);
      
     });
     
