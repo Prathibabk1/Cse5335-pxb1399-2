@@ -17,8 +17,6 @@ csv
     
  query = client.query('Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)', [d1.UNITID,JSON.stringify(d1.INSTNM),JSON.stringify(d1.ADDR),JSON.stringify(d1.CITY),JSON.stringify(d1.STABBR),JSON.stringify(d1.ZIP)],function(error, result) {
       //err is the error returned from the PostgreSQL server
-      //handle the error here
-     
       //handle the error
     if (!error)
     console.log(result);
@@ -28,8 +26,8 @@ csv
     console.log('failed to insert data');}
     });
       
-    });
-.on("end", function(){
+});
+csv.on("end", function(){
     client.end();
      console.log("done");
  });
