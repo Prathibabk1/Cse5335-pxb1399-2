@@ -12,13 +12,13 @@ console.log("Client connected to database");
     query.on('row', function(row) {
       //fired once for each row returned
       rows.push(row);
-    });
+    })
     query.on('end', function(result) {
       console.log(result.rowCount + ' rows were received');
-    });
+    })
     query.on('end', function() {
-        client.end(); 
+        client.end();
+        console.log("done");
     });
 
 
-console.log("done");
