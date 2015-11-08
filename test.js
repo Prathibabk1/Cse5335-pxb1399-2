@@ -17,5 +17,5 @@ console.log("Client connected to database");
       console.log(result.rowCount + ' rows were received');
     })
 
-query.on('end', function() { client.end(); });
+ client.end(); 
 console.log("done");
