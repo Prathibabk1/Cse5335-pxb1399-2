@@ -20,6 +20,7 @@ csv
     var city=d1.CITY;
     var st=d1.STABBR;
     var zip=d1.ZIP;
+    console.log(id,instn,add,city,zip);
     
  var query = client.query('Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)',[id,instn,add,city,st,zip], function(err, result) {
       //err is the error returned from the PostgreSQL server
