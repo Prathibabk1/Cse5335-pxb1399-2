@@ -8,14 +8,14 @@ var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec
 var client = new pg.Client(connectionString);
 client.connect();
 console.log ("Client connected to database");
-var query;
+
 
 csv
  .fromStream(stream, {headers : true})
  .on("data", function(data){
     var d1=data;
     
- query = client.query('Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)', [d1.UNITID,JSON.stringify(d1.INSTNM),JSON.stringify(d1.ADDR),JSON.stringify(d1.CITY),JSON.stringify(d1.STABBR),JSON.stringify(d1.ZIP)],function(error, result) {
+ var query = client.query('Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)', [d1.UNITID,JSON.stringify(d1.INSTNM),JSON.stringify(d1.ADDR),JSON.stringify(d1.CITY),JSON.stringify(d1.STABBR),JSON.stringify(d1.ZIP)],function(error, result) {
       //err is the error returned from the PostgreSQL server
       //handle the error
     if (!error)
@@ -26,8 +26,8 @@ csv
     console.log('failed to insert data');}
     });
       
-});
-csv.on("end", function(){
+})
+.on("end", function(){
     client.end();
      console.log("done");
  });
