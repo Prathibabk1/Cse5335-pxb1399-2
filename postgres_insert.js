@@ -14,7 +14,7 @@ csv
  .fromStream(stream, {headers : true})
  .on("data", function(data){
     var d1=data;
-    var line='Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values ('+d1.UNITID+','+JSON.stringify(d1.INSTNM)+','+JSON.stringify(d1.ADDR)+','+JSON.stringify(d1.CITY)+','+JSON.stringify(d1.STABBR)+','+JSON.stringify(d1.ZIP)+');';
+    var line='Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)', [d1.UNITID,JSON.stringify(d1.INSTNM),JSON.stringify(d1.ADDR),JSON.stringify(d1.CITY),JSON.stringify(d1.STABBR),JSON.stringify(d1.ZIP)];
     
  query = client.query(line,function(error, result) {
       //err is the error returned from the PostgreSQL server
@@ -30,8 +30,12 @@ csv
     });
       
     });
+.on("end", function(){
+     client.end();
+     console.log("done");
+ });
 
- client.end(); 
+ 
  
 
 
