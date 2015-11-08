@@ -14,18 +14,23 @@ csv
  .fromStream(stream, {headers : true})
  .on("data", function(data){
     var d1=data;
+    var id=d1.UNITID;
+    var instn=JSON.stringify(d1.INSTNM);
+    var add=JSON.stringify(d1.ADDR);
+    var city=JSON.stringify(d1.CITY);
+    var st=JSON.stringify(d1.STABBR);
+    var zip=JSON.stringify(d1.ZIP)
     
- var query = client.query('Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)', [d1.UNITID,JSON.stringify(d1.INSTNM),JSON.stringify(d1.ADDR),JSON.stringify(d1.CITY),JSON.stringify(d1.STABBR),JSON.stringify(d1.ZIP)],function(error, result) {
-      //err is the error returned from the PostgreSQL server
+ var query = client.query('Insert into items (UNITID,INSTNM, ADDR,CITY,STABBR,ZIP) values($1,$2,$3,$4,$5,$6)'[id,instn,add,city,st,zip]);
+   query.on('row', function(row) {
+           console.log(row);
+       });
+    query.on('error', function(error) {
+         //err is the error returned from the PostgreSQL server
       //handle the error
-    if (!error)
-    console.log(result);
-     
-    else{
     console.log(error);
-    console.log('failed to insert data');}
+    console.log('failed to insert data');
     });
-      
 })
 .on("end", function(){
     client.end();
