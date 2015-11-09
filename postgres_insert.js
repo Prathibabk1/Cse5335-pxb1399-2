@@ -21,7 +21,7 @@ csv
     var st=JSON.stringify(d1.STABBR);
     var zip=JSON.stringify(d1.ZIP);
     console.log(data);
-     query = client.query("Insert into ITEMS (unitid,instnm,addr,city,stabbr,zip) values($1, $2, $3, $4, $5, $6)",[data.UNITID, data.INSTNM, data.ADDR, data.CITY, data.STABBR, data.ZIP]);
+     query = client.query("Insert into ITEMS (unitid,instnm,addr,city,stabbr,zip) values($1, $2, $3, $4, $5, $6)",[parseInt(data.UNITID), data.INSTNM, data.ADDR, data.CITY, data.STABBR, data.ZIP]);
     query.on('error', function(error) {
       //handle the error
         if(error)
