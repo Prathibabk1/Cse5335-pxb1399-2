@@ -5,7 +5,7 @@ var client = new pg.Client(connectionString);
 client.connect();
 var id=100663;
 console.log("Client connected to database");
-var query = client.query("SELECT unitid FROM d8t7da2vk0jima.ITEMS " ,function(err, result) {
+var query = client.query("SELECT unitid FROM ITEMS " ,function(err, result) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(!err)
@@ -21,6 +21,7 @@ var query = client.query("SELECT unitid FROM d8t7da2vk0jima.ITEMS " ,function(er
       //fired once for each row returned
       rows.push(row);
       console.log(JSON.stringify(row));
+        console.log("sql1: "+ row.UNITId);
        
     })
     query.on('end', function(result) {
@@ -29,6 +30,7 @@ var query = client.query("SELECT unitid FROM d8t7da2vk0jima.ITEMS " ,function(er
       console.log(result.rowCount + ' rows were received');
         console.log(JSON.stringify(rows));
         console.log(rows);
+        console.log("sql1: "+ rows.UNITId);
          client.end();
     });
    
