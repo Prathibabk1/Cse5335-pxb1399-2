@@ -4,12 +4,10 @@ var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec
 var client = new pg.Client(connectionString);
 client.connect();
 console.log("Client connected to database");
- var query = client.query("SELECT * FROM ITEMS " ,function(err, result) {
+ var query = client.query("SELECT * FROM ITEMS " ,function(err) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
-     if(!err)
-         console.log(result);
-     else
+     if(err)
          console.log(err);
      
     })
