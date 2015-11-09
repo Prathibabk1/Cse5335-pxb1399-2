@@ -10,7 +10,7 @@ console.log ("Client connected to database");
 var stream = fs.createReadStream("input1.csv");
  
 csv
- .fromStream(stream, {ignoreEmpty: true})
+ .fromStream(stream, {ignoreEmpty: true,headers : true})
  .on("data", function(data){
      console.log(data);
      var query = client.query("Insert into ITEMS (unitid,instnm,addr,city,stabbr,zip) values($1, $2, $3, $4, $5, $6)",[parseInt(data.UNITID),'uta','arlington','arling','tx','76010'],function(err, result) {
