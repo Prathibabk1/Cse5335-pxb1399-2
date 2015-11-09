@@ -4,7 +4,7 @@ var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec
 var client = new pg.Client(connectionString);
 client.connect();
 console.log("Client connected to database");
- var query = client.query("SELECT * FROM ITEMS WHERE city='Phoenix' " ,function(err) {
+ var query = client.query("SELECT * FROM ITEMS WHERE city like 'Phoenix' " ,function(err) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(err)
