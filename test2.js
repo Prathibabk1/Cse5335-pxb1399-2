@@ -5,7 +5,7 @@ var client = new pg.Client(connectionString);
 client.connect();
 var id=100663;
 console.log("Client connected to database");
-var query = client.query("SELECT unitid FROM ITEMS " ,function(err, result) {
+var query = client.query("SELECT unitid FROM d8t7da2vk0jima.ITEMS " ,function(err, result) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(!err)

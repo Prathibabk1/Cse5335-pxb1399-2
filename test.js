@@ -7,7 +7,7 @@ console.log("Client connected to database");
 
 
 
- var query = client.query('Drop table items',function(err, result) {
+ var query = client.query('Drop table d8t7da2vk0jima.items',function(err, result) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(!err)
