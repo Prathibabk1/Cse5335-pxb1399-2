@@ -13,14 +13,14 @@ var query;
 csv
  .fromStream(stream, {headers : true})
  .on("data", function(data){
-    var d1=data;
+    var d1 =data;
     var id=d1.UNITID;
     var instn=JSON.stringify(d1.INSTNM);
     var add=JSON.stringify(d1.ADDR);
     var city=JSON.stringify(d1.CITY);
     var st=JSON.stringify(d1.STABBR);
     var zip=JSON.stringify(d1.ZIP);
-    
+    console.log(data);
      query = client.query("Insert into ITEMS (unitid,instnm,addr,city,stabbr,zip) values($1, $2, $3, $4, $5, $6)",[data.UNITID, data.INSTNM, data.ADDR, data.CITY, data.STABBR, data.ZIP]);
     query.on('error', function(error) {
       //handle the error
