@@ -23,7 +23,7 @@ csv
      
     });
    query.on("end", function(){
-    client.end();
+    
      console.log("done");
  });
 
@@ -37,6 +37,7 @@ csv
     
  })
  .on("end", function(){
+    client.end();
      console.log("done");
  });
  
