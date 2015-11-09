@@ -20,15 +20,15 @@ csv
     var city=JSON.stringify(d1.CITY);
     var st=JSON.stringify(d1.STABBR);
     var zip=JSON.stringify(d1.ZIP);
-    
-    var query = client.query('Insert into ITEMS (unitid,instnm,addr,city,stabbr,zip) values($1,$2,$3,$4,$5,$6)',[data.UNITID,data.INSTNM,data.ADDR,data.CITY,data.STABBR,data.ZIP],function(err, result) {
+    console.log(d1);
+    var query = client.query('Insert into ITEMS (unitid,instnm,addr,city,stabbr,zip) values(%s,%s,%s,%s,%s,%s)',[data.UNITID,data.INSTNM,data.ADDR,data.CITY,data.STABBR,data.ZIP],function(error, result) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
-        if(!err){
-         console.log(result);
-         console.log("inside");}
+        if(error)
+            console.log(err);
+         
         else
-         console.log(err);
+         console.log(result);
      
         });
         query.on("end",function(){
