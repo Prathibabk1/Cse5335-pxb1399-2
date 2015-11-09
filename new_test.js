@@ -1,49 +1,29 @@
 var pg = require('pg');
-var fs = require("fs");
-var csv = require("fast-csv");
 var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec2-54-225-194-162.compute-1.amazonaws.com:5432/d8t7da2vk0jima';
 
 var client = new pg.Client(connectionString);
 client.connect();
-console.log ("Client connected to database");
-
-var stream = fs.createReadStream("input1.csv");
- 
-csv
- .fromStream(stream, {ignoreEmpty: true,headers : true})
- .on("data", function(data){
-     console.log(data[0].UNITID);
-     var query = client.query("Insert into ITEMS (unitid,instnm,addr,city,stabbr,zip) values($1, $2, $3, $4, $5, $6)",[parseInt(data[0].UNITID),'uta','arlington','arling','tx','76010'],function(err, result) {
+console.log("Client connected to database");
+ var query = client.query("SELECT * FROM ITEMS WHERE city='Phoenix' " ,function(err) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
-     if(!err)
-         console.log(result);
-     else
+     if(err)
          console.log(err);
      
+    })
+
+var rows = [];
+   
+ query.on('row', function(row) {
+      //fired once for each row returned
+      rows.push(row);
+        console.log(JSON.stringify(row));
+       
+    })
+    query.on('end', function(result) {
+      //fired once and only once, after the last row has been returned and after all 'row' events are emitted
+      //in this example, the 'rows' array now contains an ordered set of all the rows which we received from postgres
+      console.log(result.rowCount + ' rows were received');
+         client.end();
     });
-   query.on("end", function(){
-    
-     console.log("done");
- });
-
-    
-    
-    
-    
-    
-    
-    
-    
- })
- .on("end", function(){
-    client.end();
-     console.log("done");
- });
- 
-
-  
- 
- 
-
-
+   
