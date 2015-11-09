@@ -9,8 +9,7 @@ console.log("Client connected to database");
       //handle the error here
      if(err)
          console.log(err);
-     else
-         console.log(result);
+     
      
     })
 
