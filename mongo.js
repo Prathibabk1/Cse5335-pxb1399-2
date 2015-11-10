@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 // Connection URL. This is where your mongodb server is running.
-var url = 'mongodb://<dbuser>:<dbpassword>@ds053184.mongolab.com:53184/heroku_v4m7hpj0';
+var url = 'mongodb://heroku_v4m7hpj0:MONGOdb123@ds053184.mongolab.com:53184/heroku_v4m7hpj0';
 
 //Lets connect to our database using the DB server URL.
 mongoose.connect(url);
