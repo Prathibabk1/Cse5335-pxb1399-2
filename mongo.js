@@ -1,6 +1,7 @@
 //Lets load the mongoose module in our program
 var MongoClient = require('mongodb').MongoClient;
-MongoClient.connect('mongodb://heroku_v4m7hpj0:MONGOdb123:53184/heroku_v4m7hpj0', function(err, db) {
+MongoClient.connect('mongodb://heroku_v4m7hpj0:53184/heroku_v4m7hpj0', function(err, db) {
+MongoClient.connect('mongodb://heroku_v4m7hpj0:53184/heroku_v4m7hpj0', function(err, db) {
         if(err)
             throw err;
         else
