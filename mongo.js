@@ -5,16 +5,14 @@ var mongoose = require('mongoose');
 var url = 'mongodb://<dbuser>:<dbpassword>@ds053184.mongolab.com:53184/heroku_v4m7hpj0';
 
 //Lets connect to our database using the DB server URL.
-mongoose.connect(url, function (err, db) {
-  if (err) {
-    console.log('Unable to connect to the mongoDB server. Error:', err);
-  } else {
-    //HURRAY!! We are connected. :)
-    console.log('Connection established to', url);
+mongoose.connect(url);
 
-    // do some work here with the database.
-
-    //Close connection
-    db.close();
-  }
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+    
+    console.log("connected");
+  // yay!
 });
+db.close();
+
