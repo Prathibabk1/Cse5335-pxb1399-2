@@ -1,14 +1,11 @@
-//lets require/import the mongodb native drivers.
-var mongodb = require('mongodb');
-
-//We need to work with "MongoClient" interface in order to connect to a mongodb server.
-var MongoClient = mongodb.MongoClient;
+//Lets load the mongoose module in our program
+var mongoose = require('mongoose');
 
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://<dbuser>:<dbpassword>@ds053184.mongolab.com:53184/heroku_v4m7hpj0';
 
-// Use connect method to connect to the Server
-MongoClient.connect(url, function (err, db) {
+//Lets connect to our database using the DB server URL.
+mongoose.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
