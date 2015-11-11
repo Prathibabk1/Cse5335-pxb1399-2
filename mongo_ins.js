@@ -16,12 +16,7 @@ MongoClient.connect('mongodb://heroku_v4m7hpj0@ds053184.mongolab.com:53184/herok
 myCollection= db.collection('test');  
 console.log(myCollection);
 });
-myCollection.insert({name: "doduck", description: "learn more than everyone"}, function(err, result) {
-    if(err)
-        console.log( err);
- 
-    console.log("entry saved");
-});
+
 
 
 
