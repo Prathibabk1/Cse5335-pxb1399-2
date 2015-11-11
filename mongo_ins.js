@@ -17,6 +17,13 @@ myCollection= db.collection('test');
 console.log(myCollection);
 });
 
+myCollection.insert({"name": "doduck", "description": "learn more than everyone"}, function(err, result) {
+    if(err)
+        console.log( err);
+ 
+    console.log("entry saved");
+});
+
 
 
 
