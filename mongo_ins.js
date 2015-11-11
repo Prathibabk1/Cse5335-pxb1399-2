@@ -7,13 +7,13 @@ fs.readFile('input.json', 'utf8', function (err, data) {
   jsonData= JSON.parse(data);
 });
 
-MongoClient.connect('mongodb://admin@ds053184.mongolab.com:53184/heroku_v4m7hpj0', function(err, db) {
+MongoClient.connect('mongodb://admin@ds053184.mongolab.com:53184/heroku_v4m7hpj0', function(err, database) {
     if(err)
         console.log( err);
     else
         console.log("connected to the mongoDB !");
 
-myCollection= db.collection('test');  
+myCollection= database.collection('test');  
 console.log(myCollection);
     
 for(var i=0; i<99; i++){
