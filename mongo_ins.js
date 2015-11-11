@@ -14,10 +14,11 @@ MongoClient.connect('mongodb://heroku_v4m7hpj0@ds053184.mongolab.com:53184/herok
 var collection= db.collection('test');   
 for(var i=0; i<99; i++){
 var v1= {UNITID:jsonData[i].UNITID, INSTNM:jsonData[i].INSTNM, ADDR:jsonData[i].ADDR,STABBR:jsonData[i].STABBR,CITY:jsonData[i].CITY, ZIP:jsonData[i].ZIP };
+console.log(v1);
 
 collection.insert(v1,{w:1} ,function(err, input){
 if(err)
-console.log('insert failed!');
+console.log(err);
 else
 console.log('inserted');
 });
