@@ -8,14 +8,14 @@ client.auth('p2vjfv8c4pi3uudr10b0cc1tcur', function (err) {
 client.on('connect', function() {
     console.log('Connected to Redis');
 });
-
-client.hgetall('100663', function(err, object) {
-    if(err)
-        console.log(err);
-    else
-        console.log(object);
+client.del('100663', function (err, reply) {
+    if (err) 
+    console.log(err);
+    console.log(reply.toString());
 });
-
-
-
-
+client.FLUSHDB(function(err,reply) {
+    if (err) 
+    console.log(err);
+    console.log(reply.toString());
+});
+ client.quit();

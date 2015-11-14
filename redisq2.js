@@ -9,12 +9,12 @@ client.on('connect', function() {
     console.log('Connected to Redis');
 });
 
-client.hgetall('100663', function(err, object) {
-    if(err)
-        console.log(err);
-    else
-        console.log(object);
-});
+client.hkeys("hash key", function (err, replies) {
+    console.log(replies.length + " replies:");
+    replies.forEach(function (reply, i) {
+        console.log("    " + i + ": " + reply);
+    });
+    client.quit();
 
 
 
