@@ -16,15 +16,14 @@ console.log(jsonData);
 myCollection= database.collection('test');  
 for(var i=0; i<99; i++){
 var v1= {UNITID:jsonData[i].UNITID, INSTNM:jsonData[i].INSTNM, ADDR:jsonData[i].ADDR,STABBR:jsonData[i].STABBR,CITY:jsonData[i].CITY, ZIP:jsonData[i].ZIP };
-//console.log(v1);
-/*myCollection.insert(v1,{w:1} ,function(err, result){
+myCollection.insert(v1,{w:1} ,function(err, result){
 if(err)
 console.log(err);
 else{
 console.log('inserted');
 console.log(result);
 }
-});*/
+});
 }
    
     

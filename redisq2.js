@@ -1,5 +1,11 @@
 var redis = require('redis');
-require('node-redis-streamify')(redis);
+var prompt = require('prompt');
+prompt.start();
+
+  prompt.get(['city'], function (err, input) {
+    if (err) { console.log(err); }
+var str=input.city;
+      
 var client = redis.createClient(16119, 'ec2-54-83-57-64.compute-1.amazonaws.com', {no_ready_check: true});
 client.auth('p2vjfv8c4pi3uudr10b0cc1tcur', function (err) {
     if (err)
@@ -10,19 +16,28 @@ client.on('connect', function() {
     console.log('Connected to Redis');
 });
 
+client.keys('*', function (err, replies) {
 
-var
-    key = '1*'
-    pattern = 'city:Phoenix',
-    count = 1,
-    hscan = redis.streamified('HSCAN'); // case insensitive 
- 
-client.hscan(key, pattern, count)
-    .on('data', function (data) { console.log(data);})
-    .on('error', function (error) {console.log(error);})
-    .on('end', function () {client.end();});
+    replies.forEach(function (reply, i) {
+        
+        client.hgetall(reply,function(err,output){
+                if(err)
+                    console.log(err);
+                else
+                {
+                    if(output.CITY==str)
+                        console.log(output);   
+                    
+                }
+            })
+         
+                  
+                           
+    })
+     
+    });
 
-
+ });
 
 
 
