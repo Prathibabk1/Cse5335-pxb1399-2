@@ -18,7 +18,7 @@ client.on('connect', function() {
 
 
 for(var i=0; i<99; i++){
-client.HMSET(jsonData[i].UNITID,{ "INSTNM":jsonData[i].INSTNM, "ADDR":jsonData[i].ADDR, "STABBR":jsonData[i].STABBR, "CITY":jsonData[i].CITY, "ZIP":jsonData[1].ZIP},function(err, result){
+client.HMSET(jsonData[i].UNITID,{ "INSTNM":jsonData[i].INSTNM, "ADDR":jsonData[i].ADDR, "STABBR":jsonData[i].STABBR, "CITY":jsonData[i].CITY, "ZIP":jsonData[i].ZIP},function(err, result){
 if(err)
 console.log(err);
 else{

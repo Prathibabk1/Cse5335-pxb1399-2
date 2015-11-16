@@ -9,12 +9,17 @@ client.on('connect', function() {
     console.log('Connected to Redis');
 });
 
-client.hkeys("hash key", function (err, replies) {
-    console.log(replies.length + " replies:");
+client.mget(1*,{"city:pheonix"}, function (err, replies) {
+    if(err)
+        console.log(err);
+    else{
+    
     replies.forEach(function (reply, i) {
         console.log("    " + i + ": " + reply);
+    })
+     }
     });
-    client.quit();
+   
 
 
 
