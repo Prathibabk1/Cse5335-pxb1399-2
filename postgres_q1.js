@@ -13,8 +13,8 @@ var connectionString =  'postgres://dodipbdfggqyte:XlvKUrEFuyTCT2Oagc4vU7jKXo@ec
       console.log("Client connected to database");
       
       
-      var q1="SELECT * FROM ITEMS WHERE unitid="+input.id;
-      var query = client.query( q1,function(err) {
+      var q1=input.id;
+      var query = client.query("SELECT * FROM ITEMS WHERE unitid= $1",[q1],function(err) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(err)
