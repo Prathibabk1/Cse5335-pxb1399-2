@@ -6,11 +6,12 @@ prompt.start();
   prompt.get(['city'], function (err, input) {
     if (err) { console.log(err); }
 var str=input.city;
+      console.log(str);
 var client = new pg.Client(connectionString);
 client.connect();
 console.log("Client connected to database");
       
- var query = client.query("SELECT * FROM items WHERE city like "+str,function(err) {
+ var query = client.query("SELECT * FROM items WHERE items.city = $1",[str],function(err) {
       //err is the error returned from the PostgreSQL server
       //handle the error here
      if(err)
