@@ -1,38 +1,101 @@
-# node-js-getting-started
+# Data Source
+For this project, I used the data from 
+[link](https://inventory.data.gov/dataset/032e19b4-5a90-41dc-83ff-6e4cd234f565/resource/38625c3d-5388-4c16-a30f-d105432553a4). It is free datasource provide by       [DATA .GOV](http://www.data.gov/developers/apis). The data provides information about institutions for higher education. Data includes instituton name, address, city, state and zipcode.I have selected 100 records from this data set and used them to query SQl and NoSql databases.
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+# Commands to run scripts on heroku
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
+To run script on heroku use the following command
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
+heroku run bash
+```
+**Postgres**
+ 
+ --- To run postgres queries:
+- To run the query with primary key from command line use:
+```sh
+node postgres_q1.js
+```
+> The command prompt prompts for the primary key Id. Since the id's are not in sequential order, some of the id's that can be used for querying are 100663, 100760, 101286. The primary key's labeled as UNITID can also looked up from the input file input1.csv on github.
+
+-   To run the query with a non-primary key from command line
+```sh
+node postgres_q2.js
+```
+> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Seward, Fairbanks. Make sure the first letter for city is in CAPS to retrieve the fields correctly.
+
+- To drop the postgres database use the command:
+```sh
+node postgres_drop.js
+```
+- To create the tables in postgres use the command: 
+```sh
+node postgres_create.js
+```
+- To insert the data into postgres database use the command:
+```sh
+node postgres_insert.js
+```
+**MongoDB**
+
+--- To run queries on Mongolab database
+- To run the query with primary key from command line use:
+```sh
+node mongo_q1.js
+```
+> The command prompt prompts for the primary key Id. Since the id's are not in sequential order, some of the id's that can be used for querying are 100663, 100760, 101286. The primary key UNITID can also looked up from the input file input.json on github.
+
+-   To run the query with a non-primary key from command line
+```sh
+node mongo_q2.js
+```
+> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Seward, Fairbanks. Make sure the first letter for city is in CAPS to query the fields correctly.
+- To drop the MongoDB database use the command:
+```sh
+node mongo_drop.js
+```
+- To create the tables and insert data into MongoDB use the command: 
+```sh
+node mongo_ins.js
+```
+**Redis**
+
+---To run queries on Redis database:
+- To run the query with primary key from command line
+```sh
+node redis_q1.js
+```
+> The command prompt prompts for the primary key Id. Since the id's are not in sequential order, some of th id's that can be used for querying are 100663, 100760, 101286. The primary key UNITID can also looked up from the input file input.json on github.
+
+-   To run the query with a non-primary key from command line use:
+```sh
+node redis_q2.js
+```
+> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Seward, Fairbanks. Make sure the first letter for city is in CAPS to query and retrieve the fields correctly.
+- To drop the Redis database use the command:
+```sh
+node redis_drop.js
+```
+- To create table and insert data into Redis use the command: 
+```sh
+node redis_insert.js
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+# Implementation easy
 
-## Deploying to Heroku
+I found implementation of postgres was easy as, I have had a good hands on experience with relational database like MySQL. A lot of good documentation, examples and tutorials found online made it easier.
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
+# Implemenation difficult
 
-## Documentation
+I found implementaion of redis more hard to follow because, I did not have much experience with NoSQL database and the online support was not much with respect to querying a non-primary key. However, mongo was not much difficult to implement because of good documentation availability.
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
 
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+----
+ 
+
+ 
+
+
+
+
+
+
