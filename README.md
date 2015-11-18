@@ -20,7 +20,7 @@ node postgres_q1.js
 ```sh
 node postgres_q2.js
 ```
-> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Seward, Birmingham. Make sure the first letter for city is in CAPS to retrieve the fields correctly.
+> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Tucson, Birmingham. Make sure the first letter for city is in CAPS to retrieve the fields correctly.
 
 - To drop the postgres database use the command:
 ```sh
@@ -47,7 +47,7 @@ node mongo_q1.js
 ```sh
 node mongo_q2.js
 ```
-> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Seward,Birmingham. Make sure the first letter for city is in CAPS to query the fields correctly.
+> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Tucson,Birmingham. Make sure the first letter for city is in CAPS to query the fields correctly.
 - To drop the MongoDB database use the command:
 ```sh
 node mongo_drop.js
@@ -69,7 +69,7 @@ node redis_q1.js
 ```sh
 node redis_q2.js
 ```
-> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Seward, Birmingham. Make sure the first letter for city is in CAPS to query and retrieve the fields correctly.
+> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Tucson, Birmingham. Make sure the first letter for city is in CAPS to query and retrieve the fields correctly.
 - To drop the Redis database use the command:
 ```sh
 node redis_drop.js
