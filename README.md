@@ -47,7 +47,8 @@ node mongo_q1.js
 ```sh
 node mongo_q2.js
 ```
-> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Tucson,Birmingham. Make sure the first letter for city is in CAPS to query the fields correctly.
+> The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Tucson, Birmingham. Make sure the first letter for city is in CAPS to query the fields correctly.
+
 - To drop the MongoDB database use the command:
 ```sh
 node mongo_drop.js
@@ -63,13 +64,14 @@ node mongo_ins.js
 ```sh
 node redis_q1.js
 ```
-> The command prompt prompts for the primary key Id. Since the id's are not in sequential order, some of th id's that can be used for querying are 100663, 100760, 101286. The primary key UNITID can also looked up from the input file input.json on github.
+> The command prompt prompts for the primary key Id. Since the id's are not in sequential order, some of the id's that can be used for querying are 100663, 100760, 101286. The primary key UNITID can also looked up from the input file input.json on github.
 
 -   To run the query with a non-primary key from command line use:
 ```sh
 node redis_q2.js
 ```
 > The command prompt prompts for non-primary field city. Example of cities in the database are Phoenix, Tucson, Birmingham. Make sure the first letter for city is in CAPS to query and retrieve the fields correctly.
+
 - To drop the Redis database use the command:
 ```sh
 node redis_drop.js
